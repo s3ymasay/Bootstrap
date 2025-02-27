@@ -10,85 +10,116 @@
 
 <div class="container">
   <div class="card shadow-sm">
-    <div class="card-header bg-primary text-white">
+    <div class="card-header bg-primary-subtle text-white">
       <h2 class="mb-0 fs-4">Kayıt Formu</h2>
     </div>
     <div class="card-body">
-      <form novalidate>
+      <form>
+        <!-- Email & Şifre -->
         <div class="row mb-4">
-          <div class="col-md-4">
+          <div class="col-md-4 mb-3 mb-md-0">
             <label for="email" class="form-label">Email</label>
-            <input type="email" class="form-control" id="email" required>
-            <div class="invalid-feedback">Lütfen geçerli bir e-posta girin.</div>
+            <input type="email" class="form-control" id="email" placeholder="Email adresiniz">
           </div>
-          <div class="col-md-4">
+          <div class="col-md-4 mb-3 mb-md-0">
             <label for="password" class="form-label">Şifre</label>
-            <div class="input-group">
-              <input type="password" class="form-control" id="password" minlength="6" required>
-              <button class="btn btn-outline-secondary" type="button" id="togglePassword">👁️</button>
+            <input type="password" class="form-control" id="password" placeholder="Şifreniz">
+          </div>
+          <div class="col-md-4 d-flex align-items-end">
+            <div class="form-check me-3 mb-2">
+              <input type="checkbox" class="form-check-input" id="rememberMe">
+              <label class="form-check-label" for="rememberMe">Beni Hatırla</label>
             </div>
-            <div class="invalid-feedback">Şifre en az 6 karakter olmalıdır.</div>
           </div>
         </div>
 
+        <!-- Kişisel Bilgiler -->
         <h5 class="card-title mb-3">Kişisel Bilgiler</h5>
         <div class="row g-3 mb-4">
           <div class="col-md-6">
             <label for="tcKimlik" class="form-label">TC Kimlik No</label>
-            <input type="text" class="form-control" id="tcKimlik" pattern="\d{11}" maxlength="11" required>
-            <div class="invalid-feedback">TC Kimlik Numarası 11 haneli olmalıdır.</div>
+            <input type="text" class="form-control" id="tcKimlik" placeholder="TC Kimlik No">
+          </div>
+          <div class="col-md-6">
+            <label for="adSoyad" class="form-label">Ad Soyad</label>
+            <input type="text" class="form-control" id="adSoyad" placeholder="Ad Soyad">
+          </div>
+          <div class="col-md-6">
+            <label for="telefon" class="form-label">Telefon Numarası</label>
+            <input type="tel" class="form-control" id="telefon" placeholder="Telefon Numarası">
+          </div>
+          <div class="col-md-6">
+            <label for="cinsiyet" class="form-label">Cinsiyet</label>
+            <select class="form-select" id="cinsiyet">
+              <option selected disabled value="">Cinsiyet Seçin...</option>
+              <option value="erkek">Erkek</option>
+              <option value="kadın">Kadın</option>
+              <option value="diger">Diğer</option>
+            </select>
           </div>
         </div>
 
-        <div class="row g-3 mb-4">
-          <div class="col-md-6">
-            <label for="il" class="form-label">İl</label>
-            <select class="form-select" id="il">
-              <option selected disabled value="">İl Seçin...</option>
-              <option value="istanbul">İstanbul</option>
-              <option value="ankara">Ankara</option>
-              <option value="izmir">İzmir</option>
-            </select>
-          </div>
-          <div class="col-md-6">
-            <label for="ilce" class="form-label">İlçe</label>
-            <select class="form-select" id="ilce" disabled>
-              <option selected disabled value="">Önce İl Seçin...</option>
-            </select>
-          </div>
+        <!-- Askerlik Durumu -->
+        <div class="mb-4">
+          <label for="askerlik" class="form-label">Askerlik Durumu</label>
+          <select class="form-select" id="askerlik">
+            <option selected disabled value="">Seçin...</option>
+            <option value="tamamlandi">Tamamlandı</option>
+            <option value="muaf">Muaf</option>
+            <option value="tecil">Tecilli</option>
+            <option value="yapilmadi">Yapılmadı</option>
+          </select>
         </div>
 
+        <!-- Hobiler -->
         <div class="mb-4">
           <label class="form-label mb-2">Hobiler (En fazla 3 seçim yapabilirsiniz)</label>
           <div class="row">
             <div class="col-md-4">
-              <input type="checkbox" class="form-check-input" id="spor">
+              <input type="checkbox" class="form-check-input hobby" id="spor">
               <label for="spor">Spor</label>
             </div>
             <div class="col-md-4">
-              <input type="checkbox" class="form-check-input" id="muzik">
+              <input type="checkbox" class="form-check-input hobby" id="muzik">
               <label for="muzik">Müzik</label>
             </div>
             <div class="col-md-4">
-              <input type="checkbox" class="form-check-input" id="kitap">
+              <input type="checkbox" class="form-check-input hobby" id="kitap">
               <label for="kitap">Kitap Okuma</label>
+            </div>
+            <div class="col-md-4">
+              <input type="checkbox" class="form-check-input hobby" id="fotograf">
+              <label for="fotograf">Fotoğrafçılık</label>
+            </div>
+            <div class="col-md-4">
+              <input type="checkbox" class="form-check-input hobby" id="kamp">
+              <label for="kamp">Kampçılık</label>
             </div>
           </div>
         </div>
 
+        <!-- Adres -->
+        <div class="mb-4">
+          <label class="form-label" for="adres">Adres</label>
+          <textarea class="form-control" id="adres" rows="3" placeholder="Adresinizi girin..."></textarea>
+        </div>
+
+        <!-- Dosya Yükleme -->
         <div class="row mb-4">
-          <div class="col-md-6">
+          <div class="col-md-6 mb-3 mb-md-0">
             <label for="fileInput" class="form-label">Profil Resmi</label>
             <input type="file" class="form-control" id="fileInput" accept="image/*">
           </div>
-          <div class="col-md-6">
+          <div class="col-md-6 d-flex flex-column">
+            <label class="form-label">Önizleme</label>
             <div class="border rounded d-flex justify-content-center align-items-center" style="height: 150px;">
-              <img id="previewImage" class="img-fluid d-none" style="max-height: 140px;">
+              <img id="previewImage" class="img-fluid d-none" style="max-height: 140px;" alt="Resim önizleme">
               <span id="previewPlaceholder">Resim yüklendiğinde burada görünecek</span>
             </div>
           </div>
         </div>
 
+        <!-- Kaydet Butonu -->
         <div class="text-end">
           <button type="submit" class="btn btn-primary px-4">Kaydet</button>
         </div>
@@ -97,64 +128,33 @@
   </div>
 </div>
 
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 <script>
-  document.querySelector("form").addEventListener("submit", function(event) {
-    if (!this.checkValidity()) {
-      event.preventDefault();
-      event.stopPropagation();
+  document.getElementById("fileInput").addEventListener("change", function(event) {
+    const file = event.target.files[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onload = function(e) {
+        const previewImage = document.getElementById("previewImage");
+        const previewPlaceholder = document.getElementById("previewPlaceholder");
+
+        previewImage.src = e.target.result;
+        previewImage.classList.remove("d-none");
+        previewPlaceholder.classList.add("d-none");
+      };
+      reader.readAsDataURL(file);
     }
-    this.classList.add("was-validated");
   });
 
-  document.getElementById("togglePassword").addEventListener("click", function() {
-    const passwordInput = document.getElementById("password");
-    passwordInput.type = passwordInput.type === "password" ? "text" : "password";
-  });
-
-  const ilceler = {
-    istanbul: ["Kadıköy", "Beşiktaş", "Üsküdar"],
-    ankara: ["Çankaya", "Keçiören", "Altındağ"],
-    izmir: ["Konak", "Bornova", "Karşıyaka"]
-  };
-
-  document.getElementById("il").addEventListener("change", function() {
-    const ilceSelect = document.getElementById("ilce");
-    ilceSelect.innerHTML = '<option selected disabled value="">İlçe Seçin...</option>';
-    ilceSelect.disabled = false;
-
-    ilceler[this.value].forEach(ilce => {
-      let option = document.createElement("option");
-      option.value = ilce.toLowerCase();
-      option.textContent = ilce;
-      ilceSelect.appendChild(option);
-    });
-  });
-
-  document.querySelectorAll("input[type=checkbox]").forEach(checkbox => {
+  // Hobi seçimini 3 ile sınırla
+  document.querySelectorAll(".hobby").forEach(checkbox => {
     checkbox.addEventListener("change", function() {
-      const checkedBoxes = document.querySelectorAll("input[type=checkbox]:checked");
+      const checkedBoxes = document.querySelectorAll(".hobby:checked");
       if (checkedBoxes.length > 3) {
         this.checked = false;
         alert("En fazla 3 hobi seçebilirsiniz!");
       }
     });
-  });
-
-  document.getElementById("fileInput").addEventListener("change", function(event) {
-    const file = event.target.files[0];
-    if (file) {
-      if (!file.type.startsWith("image/") || file.size > 2 * 1024 * 1024) {
-        alert("Lütfen geçerli bir resim dosyası (max 2MB) yükleyin!");
-        return;
-      }
-      const reader = new FileReader();
-      reader.onload = function(e) {
-        document.getElementById("previewImage").src = e.target.result;
-        document.getElementById("previewImage").classList.remove("d-none");
-        document.getElementById("previewPlaceholder").classList.add("d-none");
-      };
-      reader.readAsDataURL(file);
-    }
   });
 </script>
 
